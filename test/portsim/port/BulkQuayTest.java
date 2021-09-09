@@ -34,7 +34,7 @@ public class BulkQuayTest {
     public void testToString() {
         assertEquals(sut.toString(), "BulkQuay 0 [Ship: None] - 500");
 
-        BulkCarrier ship = new BulkCarrier(3141592, "ApplePie", "Australia", NauticalFlag.WHISKY, 100);
+        BulkCarrier ship = new BulkCarrier(3141592, "ApplePie", "Australia", NauticalFlag.WHISKEY, 100);
         sut.shipArrives(ship);
 
         assertEquals(sut.toString(), "BulkQuay 0 [Ship: 3141592] - 500");

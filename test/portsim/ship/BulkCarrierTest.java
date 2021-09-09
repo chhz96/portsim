@@ -23,6 +23,11 @@ public class BulkCarrierTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
+    public void testCtorImoTooShort() {
+        new BulkCarrier(314159, "ApplePie", "Australia", NauticalFlag.WHISKEY, 100);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void testCtorNegativeImo() {
         new BulkCarrier(-5, "ApplePie", "Australia", NauticalFlag.WHISKEY, 100);
     }
@@ -56,6 +61,7 @@ public class BulkCarrierTest {
         Cargo heavyCargo = new BulkCargo(2, "Australia", 200, BulkCargoType.COAL);
         Cargo lightCargo = new BulkCargo(3, "Australia", 80, BulkCargoType.COAL);
 
+        assertFalse(sut.canLoad(null));
         assertFalse(sut.canLoad(wrongTypeCargo));
         assertFalse(sut.canLoad(wrongDestination));
         assertFalse(sut.canLoad(heavyCargo));
